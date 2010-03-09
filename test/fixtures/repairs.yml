@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  car: MyString
+  repair_date: 
+  notes: MyString
+
+two:
+  title: MyString
+  car: MyString
+  repair_date: 
+  notes: MyString

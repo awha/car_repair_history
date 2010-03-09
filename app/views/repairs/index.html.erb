@@ -1,0 +1,26 @@
+<h1>Listing repairs</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Car</th>
+    <th>Repair date</th>
+    <th>Notes</th>
+  </tr>
+
+<% @repairs.each do |repair| %>
+  <tr>
+    <td><%=h repair.title %></td>
+    <td><%=h repair.car %></td>
+    <td><%=h repair.repair_date %></td>
+    <td><%=h repair.notes %></td>
+    <td><%= link_to 'Show', repair %></td>
+    <td><%= link_to 'Edit', edit_repair_path(repair) %></td>
+    <td><%= link_to 'Destroy', repair, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New repair', new_repair_path %>

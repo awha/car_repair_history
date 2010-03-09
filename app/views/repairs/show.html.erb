@@ -1,0 +1,23 @@
+<p>
+  <b>Title:</b>
+  <%=h @repair.title %>
+</p>
+
+<p>
+  <b>Car:</b>
+  <%=h @repair.car %>
+</p>
+
+<p>
+  <b>Repair date:</b>
+  <%=h @repair.repair_date %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @repair.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_repair_path(@repair) %> |
+<%= link_to 'Back', repairs_path %>

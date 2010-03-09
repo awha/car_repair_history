@@ -1,0 +1,499 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepairs (20100309012624)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "repairs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "car" varchar(255), "repair_date" date, "notes" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100309012624')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("repairs")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRepairs (20100309012624)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("repairs")[0m
+
+
+Processing RepairsController#index (for 127.0.0.1 at 2010-03-08 20:30:39) [GET]
+  [4;36;1mRepair Load (0.4ms)[0m   [0;1mSELECT * FROM "repairs" [0m
+Rendering template within layouts/repairs
+Rendering repairs/index
+Completed in 84ms (View: 80, DB: 0) | 200 OK [http://localhost/repairs]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 20:42:28) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+
+ActionView::TemplateError (undefined method `use_date' for #<Repair:0x00000102a19298>) on line #14 of app/views/repairs/new.html.erb:
+11:     <%= f.label :car %><br />
+12:     <%= f.text_field :car %>
+13:   </p>
+14:     <%= f.check_box :use_date %>
+15:   <p>
+16:     <%= f.label :repair_date %><br />
+17:     <%= f.text_field :repair_date %>
+
+    app/views/repairs/new.html.erb:14:in `block in _run_erb_app47views47repairs47new46html46erb'
+    app/views/repairs/new.html.erb:3
+    app/controllers/repairs_controller.rb:29:in `new'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (116.0ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 20:46:29) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 14ms (View: 11, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 20:46:57) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 20:47:59) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+
+ActionView::TemplateError (undefined method `date' for #<ActionView::Helpers::FormBuilder:0x00000101779d58>) on line #17 of app/views/repairs/new.html.erb:
+14:     <label for="use_date">Use Date</label> <%= check_box_tag "use_date" %>
+15:   <p>
+16:     <%= f.label :repair_date %><br />
+17:     <%= f.date :repair_date %>
+18:   </p>
+19:   <p>
+20:     <%= f.label :notes %><br />
+
+    app/views/repairs/new.html.erb:17:in `block in _run_erb_app47views47repairs47new46html46erb'
+    app/views/repairs/new.html.erb:3
+    app/controllers/repairs_controller.rb:29:in `new'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (108.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:00:28) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+
+ActionView::TemplateError (undefined method `date_select_tag' for #<ActionView::Base:0x0000010295a0e8>) on line #15 of app/views/repairs/new.html.erb:
+12:     <%= f.text_field :car %>
+13:   </p>
+14:     <label for="use_date">Use Date</label> <%= check_box_tag "use_date" %>
+15:     <label for="repair_date">Repair Date</label> <%= date_select_tag "repair_date" %>
+16:   <p>
+17:     <%= f.label :repair_date %><br />
+18:     <%= f.date_select :repair_date %>
+
+    app/views/repairs/new.html.erb:15:in `block in _run_erb_app47views47repairs47new46html46erb'
+    app/views/repairs/new.html.erb:3
+    app/controllers/repairs_controller.rb:29:in `new'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (68.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:01:23) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+
+ActionView::TemplateError (undefined method `select_date_tag' for #<ActionView::Base:0x00000102a5d510>) on line #15 of app/views/repairs/new.html.erb:
+12:     <%= f.text_field :car %>
+13:   </p>
+14:     <label for="use_date">Use Date</label> <%= check_box_tag "use_date" %>
+15:     <label for="repair_date">Repair Date</label> <%= select_date_tag "repair_date" %>
+16:   <p>
+17:     <%= f.label :repair_date %><br />
+18:     <%= f.date_select :repair_date %>
+
+    app/views/repairs/new.html.erb:15:in `block in _run_erb_app47views47repairs47new46html46erb'
+    app/views/repairs/new.html.erb:3
+    app/controllers/repairs_controller.rb:29:in `new'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (66.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:02:07) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 137ms (View: 133, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#index (for 127.0.0.1 at 2010-03-08 21:04:05) [GET]
+  [4;36;1mRepair Load (0.4ms)[0m   [0;1mSELECT * FROM "repairs" [0m
+Rendering template within layouts/repairs
+Rendering repairs/index
+Completed in 99ms (View: 93, DB: 0) | 200 OK [http://localhost/repairs]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:04:08) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 175ms (View: 168, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#create (for 127.0.0.1 at 2010-03-08 21:04:13) [POST]
+  Parameters: {"authenticity_token"=>"bDgAvLwjwgCTRy9emphG4APHRHNI31tiKrz1/SfHpMQ=", "repair"=>{"title"=>"", "car"=>"", "repair_date(1i)"=>"2010", "repair_date(2i)"=>"3", "repair_date(3i)"=>"9", "notes"=>""}, "commit"=>"Create"}
+
+
+Processing RepairsController#index (for 127.0.0.1 at 2010-03-08 21:13:12) [GET]
+  [4;36;1mRepair Load (1.2ms)[0m   [0;1mSELECT * FROM "repairs" [0m
+Rendering template within layouts/repairs
+Rendering repairs/index
+Completed in 99ms (View: 94, DB: 1) | 200 OK [http://localhost/repairs]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:13:14) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 205ms (View: 200, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#create (for 127.0.0.1 at 2010-03-08 21:13:17) [POST]
+  Parameters: {"authenticity_token"=>"J9qlboO436MEily0A3yxVhRO1DjuoUAcmCUNvGbJIhk=", "repair"=>{"title"=>"", "car"=>"", "repair_date(1i)"=>"2010", "repair_date(2i)"=>"3", "repair_date(3i)"=>"9", "notes"=>""}, "commit"=>"Create"}
+  [4;35;1mRepair Create (16.2ms)[0m   [0mINSERT INTO "repairs" ("title", "car", "repair_date", "notes", "created_at", "updated_at") VALUES('', '', '2010-03-09', '', '2010-03-09 02:13:17', '2010-03-09 02:13:17')[0m
+Redirected to http://localhost:3000/repairs/1
+Completed in 39ms (DB: 16) | 302 Found [http://localhost/repairs]
+
+
+Processing RepairsController#show (for 127.0.0.1 at 2010-03-08 21:13:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mRepair Load (0.2ms)[0m   [0;1mSELECT * FROM "repairs" WHERE ("repairs"."id" = 1) [0m
+Rendering template within layouts/repairs
+Rendering repairs/show
+Completed in 14ms (View: 10, DB: 0) | 200 OK [http://localhost/repairs/1]
+
+
+Processing RepairsController#index (for 127.0.0.1 at 2010-03-08 21:17:53) [GET]
+  [4;35;1mRepair Load (0.4ms)[0m   [0mSELECT * FROM "repairs" [0m
+Rendering template within layouts/repairs
+Rendering repairs/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://localhost/repairs]
+
+
+Processing RepairsController#destroy (for 127.0.0.1 at 2010-03-08 21:17:57) [DELETE]
+  Parameters: {"authenticity_token"=>"J9qlboO436MEily0A3yxVhRO1DjuoUAcmCUNvGbJIhk=", "id"=>"1"}
+  [4;36;1mRepair Load (0.2ms)[0m   [0;1mSELECT * FROM "repairs" WHERE ("repairs"."id" = 1) [0m
+  [4;35;1mRepair Destroy (0.2ms)[0m   [0mDELETE FROM "repairs" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/repairs
+Completed in 35ms (DB: 0) | 302 Found [http://localhost/repairs/1]
+
+
+Processing RepairsController#index (for 127.0.0.1 at 2010-03-08 21:17:57) [GET]
+  [4;36;1mRepair Load (0.3ms)[0m   [0;1mSELECT * FROM "repairs" [0m
+Rendering template within layouts/repairs
+Rendering repairs/index
+Completed in 5ms (View: 1, DB: 0) | 200 OK [http://localhost/repairs]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:17:58) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+ERROR: compiling _run_erb_app47views47repairs47new46html46erb RAISED /Users/andrew/car_repair_history/app/views/repairs/new.html.erb:12: syntax error, unexpected ',', expecting tASSOC
+...ncat(( f.select :car, {"Buick", "Cadillac"} ).to_s); @output...
+...                               ^
+/Users/andrew/car_repair_history/app/views/repairs/new.html.erb:12: syntax error, unexpected '}', expecting ')'
+...ect :car, {"Buick", "Cadillac"} ).to_s); @output_buffer.conc...
+...                               ^
+Function body:           def _run_erb_app47views47repairs47new46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>New repair</h1>\n\n"
+
+;  form_for(@repair) do |f| ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :title ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.text_field :title ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :car ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.select :car, {"Buick", "Cadillac"} ).to_s); @output_buffer.concat "\n  </p>\n    <label for=\"use_date\">Use Date</label> "
+
+; @output_buffer.concat(( check_box_tag "use_date" ).to_s); @output_buffer.concat "\n  <p>\n    "
+
+; @output_buffer.concat(( f.label :repair_date ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.date_select :repair_date ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :notes ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.text_field :notes ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.submit 'Create' ).to_s); @output_buffer.concat "\n  </p>\n"
+
+;  end ; @output_buffer.concat "\n\n"
+
+; @output_buffer.concat(( link_to 'Back', repairs_path ).to_s); @output_buffer.force_encoding(__ENCODING__)
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `module_eval'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:77:in `compile!'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:951:in `render'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `block in render_with_benchmark'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+/usr/local/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:135:in `block in custom'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:179:in `block in respond'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `each'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:173:in `respond'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/andrew/car_repair_history/app/controllers/repairs_controller.rb:29:in `new'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:1331:in `perform_action'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_with_filters'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `block in perform_action_with_benchmark'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `block in ms'
+/usr/local/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/usr/local/lib/ruby/gems/1.9.1/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_with_rescue'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action_with_flash'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process_with_filters'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `block in build_middleware_stack'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:8:in `synchronize'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+/usr/local/lib/ruby/gems/1.9.1/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `block in call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/usr/local/lib/ruby/gems/1.9.1/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+ActionView::TemplateError (/Users/andrew/car_repair_history/app/views/repairs/new.html.erb:12: syntax error, unexpected ',', expecting tASSOC
+...ncat(( f.select :car, {"Buick", "Cadillac"} ).to_s); @output...
+...                               ^
+/Users/andrew/car_repair_history/app/views/repairs/new.html.erb:12: syntax error, unexpected '}', expecting ')'
+...ect :car, {"Buick", "Cadillac"} ).to_s); @output_buffer.conc...
+...                               ^) on line #12 of app/views/repairs/new.html.erb:
+9:   </p>
+10:   <p>
+11:     <%= f.label :car %><br />
+12:     <%= f.select :car, {"Buick", "Cadillac"} %>
+13:   </p>
+14:     <label for="use_date">Use Date</label> <%= check_box_tag "use_date" %>
+15:   <p>
+
+    app/controllers/repairs_controller.rb:29:in `new'
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (66.8ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:20:12) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#index (for 127.0.0.1 at 2010-03-08 21:27:30) [GET]
+  [4;35;1mRepair Load (0.3ms)[0m   [0mSELECT * FROM "repairs" [0m
+Rendering template within layouts/repairs
+Rendering repairs/index
+Completed in 5ms (View: 1, DB: 0) | 200 OK [http://localhost/repairs]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:27:32) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 60ms (View: 56, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:28:22) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 17ms (View: 13, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#create (for 127.0.0.1 at 2010-03-08 21:30:00) [POST]
+  Parameters: {"authenticity_token"=>"J9qlboO436MEily0A3yxVhRO1DjuoUAcmCUNvGbJIhk=", "repair"=>{"title"=>"wiper motor", "car"=>"Buick", "repair_date(1i)"=>"", "repair_date(2i)"=>"", "repair_date(3i)"=>"", "notes"=>"Needs new wiper motor.  Windshield wipers are moving too slowly.  Need wiper motor from '75 or later full-size Buick or '78/'79 Pontiac Trans Am."}, "commit"=>"Create"}
+  [4;36;1mRepair Create (0.5ms)[0m   [0;1mINSERT INTO "repairs" ("title", "car", "repair_date", "notes", "created_at", "updated_at") VALUES('wiper motor', 'Buick', NULL, 'Needs new wiper motor. Windshield wipers are moving too slowly. Need wiper motor from ''75 or later full-size Buick or ''78/''79 Pontiac Trans Am.', '2010-03-09 02:30:00', '2010-03-09 02:30:00')[0m
+Redirected to http://localhost:3000/repairs/2
+Completed in 336ms (DB: 1) | 302 Found [http://localhost/repairs]
+
+
+Processing RepairsController#show (for 127.0.0.1 at 2010-03-08 21:30:00) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mRepair Load (0.2ms)[0m   [0mSELECT * FROM "repairs" WHERE ("repairs"."id" = 2) [0m
+Rendering template within layouts/repairs
+Rendering repairs/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/repairs/2]
+
+
+Processing RepairsController#edit (for 127.0.0.1 at 2010-03-08 21:30:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mRepair Load (0.2ms)[0m   [0;1mSELECT * FROM "repairs" WHERE ("repairs"."id" = 2) [0m
+Rendering template within layouts/repairs
+Rendering repairs/edit
+
+ActionView::TemplateError (undefined method `merge' for :include_blank:Symbol) on line #16 of app/views/repairs/edit.html.erb:
+13:   </p>
+14:   <p>
+15:     <%= f.label :repair_date %><br />
+16:     <%= f.text_field :repair_date, :include_blank %>
+17:   </p>
+18:   <p>
+19:     <%= f.label :notes %><br />
+
+    app/views/repairs/edit.html.erb:16:in `block in _run_erb_app47views47repairs47edit46html46erb'
+    app/views/repairs/edit.html.erb:3
+    <internal:prelude>:8:in `synchronize'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (103.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing RepairsController#edit (for 127.0.0.1 at 2010-03-08 21:31:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mRepair Load (0.2ms)[0m   [0mSELECT * FROM "repairs" WHERE ("repairs"."id" = 2) [0m
+Rendering template within layouts/repairs
+Rendering repairs/edit
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/repairs/2/edit]
+
+
+Processing RepairsController#edit (for 127.0.0.1 at 2010-03-08 21:31:37) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mRepair Load (0.2ms)[0m   [0;1mSELECT * FROM "repairs" WHERE ("repairs"."id" = 2) [0m
+Rendering template within layouts/repairs
+Rendering repairs/edit
+Completed in 18ms (View: 14, DB: 0) | 200 OK [http://localhost/repairs/2/edit]
+
+
+Processing RepairsController#show (for 127.0.0.1 at 2010-03-08 21:31:47) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mRepair Load (0.2ms)[0m   [0mSELECT * FROM "repairs" WHERE ("repairs"."id" = 2) [0m
+Rendering template within layouts/repairs
+Rendering repairs/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/repairs/2]
+
+
+Processing RepairsController#index (for 127.0.0.1 at 2010-03-08 21:31:50) [GET]
+  [4;36;1mRepair Load (0.4ms)[0m   [0;1mSELECT * FROM "repairs" [0m
+Rendering template within layouts/repairs
+Rendering repairs/index
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://localhost/repairs]
+
+
+Processing RepairsController#new (for 127.0.0.1 at 2010-03-08 21:32:52) [GET]
+Rendering template within layouts/repairs
+Rendering repairs/new
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/repairs/new]
+
+
+Processing RepairsController#create (for 127.0.0.1 at 2010-03-08 21:33:19) [POST]
+  Parameters: {"authenticity_token"=>"J9qlboO436MEily0A3yxVhRO1DjuoUAcmCUNvGbJIhk=", "repair"=>{"title"=>"install full-size spare tire", "car"=>"Cadillac", "repair_date(1i)"=>"", "repair_date(2i)"=>"", "repair_date(3i)"=>"", "notes"=>""}, "commit"=>"Create"}
+  [4;35;1mRepair Create (0.4ms)[0m   [0mINSERT INTO "repairs" ("title", "car", "repair_date", "notes", "created_at", "updated_at") VALUES('install full-size spare tire', 'Cadillac', NULL, '', '2010-03-09 02:33:19', '2010-03-09 02:33:19')[0m
+Redirected to http://localhost:3000/repairs/3
+Completed in 343ms (DB: 0) | 302 Found [http://localhost/repairs]
+
+
+Processing RepairsController#show (for 127.0.0.1 at 2010-03-08 21:33:19) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mRepair Load (0.2ms)[0m   [0;1mSELECT * FROM "repairs" WHERE ("repairs"."id" = 3) [0m
+Rendering template within layouts/repairs
+Rendering repairs/show
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://localhost/repairs/3]
+
+
+Processing RepairsController#index (for 127.0.0.1 at 2010-03-08 21:33:22) [GET]
+  [4;35;1mRepair Load (0.5ms)[0m   [0mSELECT * FROM "repairs" [0m
+Rendering template within layouts/repairs
+Rendering repairs/index
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://localhost/repairs]
